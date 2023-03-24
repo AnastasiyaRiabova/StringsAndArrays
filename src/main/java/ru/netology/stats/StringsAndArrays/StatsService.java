@@ -16,9 +16,10 @@ public class StatsService {
         for (long value : sales) {
             sum += value;
         }
-        return sum/12;
+        return sum / 12;
 
     }
+
     public int maxSales(long[] sales) { //3
         int maxMonth = 0;
 
@@ -30,6 +31,7 @@ public class StatsService {
 
         return maxMonth + 1;
     }
+
     public int minSales(long[] sales) { //4
         int minMonth = 0;
 
@@ -42,6 +44,25 @@ public class StatsService {
         return minMonth + 1;
     }
 
-    // сумма всех чисел = 180 . среднее = 15  Количество месяцев, в которых продажи были ниже среднего - 5 месяцев
-    // Количество месяцев, в которых продажи были выше среднего - 5 месяцев
+    public int belowAverage(long[] sales) { //5
+        int count = 0;
+        for (long value : sales) {
+            if (value < averageSum(sales)) {
+                count++;
+            }
+        }
+        return count;
+
+    }
+
+    public int aboveAverage(long[] sales) { //6
+        int count = 0;
+        for (long value : sales) {
+            if (value > averageSum(sales)) {
+                count++;
+            }
+        }
+        return count;
+
+    }
 }
